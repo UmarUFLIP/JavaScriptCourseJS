@@ -104,15 +104,15 @@ Test data:
 GOOD LUCK 😀
 */
 
-// Jonas's solution
-const calcAverageHumanAge2 = ages =>
-  ages
-    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
-    .filter(age => age >= 18)
-    .reduce((acc, age, i, arr) => acc + age / arr.length, 0); // We need to take the length from the arr parameter, recall we did not store the result of filter in some variable and therefore cannot call .length on it.
+// // Jonas's solution
+// const calcAverageHumanAge2 = ages =>
+//   ages
+//     .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+//     .filter(age => age >= 18)
+//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0); // We need to take the length from the arr parameter, recall we did not store the result of filter in some variable and therefore cannot call .length on it.
 
-console.log(calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
-console.log(calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]));
+// console.log(calcAverageHumanAge2([5, 2, 4, 1, 15, 8, 3]));
+// console.log(calcAverageHumanAge2([16, 6, 10, 5, 6, 1, 4]));
 
 /*
 Coding Challenge #4
@@ -157,10 +157,67 @@ Hints:
    1.10). Basically, the current portion should be between 90% and 110% of the
    recommended portion. */
 
-// // // Test Data:
-// const dogs = [
-//   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-//   { weight: 8, curFood: 200, owners: ['Matilda'] },
-//   { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-//   { weight: 32, curFood: 340, owners: ['Michael'] },
-// ];
+// Test Data:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+// 1.
+dogs.forEach(
+  dog => (dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28))
+);
+
+// 2.
+// Loop over dog array and find the dog that has (includes) the owner 'Sarah'
+const dogSarah = dogs.find(dog => dog.owners.includes('Sarah'));
+console.log(
+  `Sarah's dog is eating too ${
+    dogSarah.curFood > dogSarah.recommendedFood ? 'much' : 'little'
+  }`
+);
+
+// 3.
+const ownersEatTooMuch = dogs
+  .filter(dog => dog.curFood > dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+
+console.log(ownersEatTooMuch);
+
+const ownersEatTooLittle = dogs
+  .filter(dog => dog.curFood <= dog.recommendedFood)
+  .flatMap(dog => dog.owners);
+
+console.log(ownersEatTooLittle);
+
+// 4.
+console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much`);
+console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little`);
+
+// 5.
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFood));
+
+// 6.
+console.log(
+  dogs.some(
+    dog =>
+      dog.curFood > dog.recommendedFood * 0.9 &&
+      dog.curFood < dog.recommendedFood * 1.1
+  )
+);
+
+// 7. Filter out all dogs eating okay amount of food.
+const checkEatingOK = dog =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+
+console.log(dogs.filter(checkEatingOK));
+
+// 8.
+const dogsSorted = dogs
+  .slice()
+  .sort((a, b) => a.recommendedFood - b.recommendedFood);
+
+console.log(dogsSorted);

@@ -68,10 +68,16 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   // Fixes the problem where the old 'stub' data was still on the page. The deposit of 4,000€ and withdrawal of 378€
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  // cannot use spread operator as we are in the middle of the chain so slice is better.
+  // sort the movs otherwise just keep it the movements.
+  // Need to call this function with sort set to true when the 'sort' button is clicked.
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -148,6 +154,43 @@ btnLogin.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  // The amount > 0 and if there's a deposit that's greater than the loan amount * 10%, then the loan will be granted.
+  if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  if (
+    inputCloseUsername.value === currentAccount.username &&
+    Number(inputClosePin.value) === currentAccount.pin
+  ) {
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+
+    // Delete Account
+    accounts.splice(index, 1);
+
+    // Hide the UI
+    containerApp.style.opacity = 0;
+  }
+  inputCloseUsername.value = inputClosePin.value = '';
+});
+
 // Convert to lowercase and split it up
 // const username = user.toLowerCase().split(' ');
 /* Splitting it up will put it into an array. Now we need to loop over array
@@ -201,6 +244,13 @@ btnTransfer.addEventListener('click', function (e) {
     updateUI(currentAccount);
   }
 });
+
+let sorted = false; // Need this as a toggle to true and false for sorted.
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted; // Update to the opposite of sorted so it can act like toggled.
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -215,3 +265,38 @@ btnTransfer.addEventListener('click', function (e) {
 
 /////////////////////////////////////////////////
 //                LECTURES:
+
+// 3.
+// Want sum of deposits and of withdrawals
+const { deposits, withdrawals } = accounts
+  .flatMap(acc => acc.movements)
+  .reduce(
+    (sums, cur) => {
+      // cur > 0 ? (sums.deposits += cur) : (sums.withdrawals += cur);
+      sums[cur > 0 ? 'deposits' : 'withdrawals'] += cur;
+      return sums;
+    },
+    { deposits: 0, withdrawals: 0 }
+  );
+
+console.log(deposits, withdrawals);
+
+// 4.
+// This is a nice title -> This Is a Nice Title
+
+const convertTitleCase = function (title) {
+  const capitalize = str => str[0].toUpperCase() + str.slice(1);
+
+  const exceptions = ['a', 'an', 'and', 'the', 'but', 'or', 'on', 'in', 'with'];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(' ');
+  // If the exceptions includes the word then return the word otherwise take the first index of word, make it uppercase, and join it with the rest of the word starting at 1.
+  return capitalize(titleCase); // we did capitalize because the first word even with exceptions are capitalized.
+};
+console.log(convertTitleCase('This is a nice title'));
+console.log(convertTitleCase('This is a LONG title but not too long'));
+console.log(convertTitleCase('and here is another title with an EXAMPLE'));
