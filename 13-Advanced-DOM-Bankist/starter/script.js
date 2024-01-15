@@ -190,45 +190,125 @@ imgTarget.forEach(img => imgObserver.observe(img));
 ///////////////////////////////////////
 //        Slider Component
 ///////////////////////////////////////
-const slides = document.querySelectorAll('.slide');
-const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right');
+const sliders = function () {
+  const slides = document.querySelectorAll('.slide');
+  const btnLeft = document.querySelector('.slider__btn--left');
+  const btnRight = document.querySelector('.slider__btn--right');
+  const dotContainer = document.querySelector('.dots');
 
-let curSlide = 0;
-const maxSlide = slides.length - 1;
+  let curSlide = 0;
+  const maxSlide = slides.length - 1;
 
-const goToSlide = function (slide) {
-  slides.forEach(
-    // Ex: curSlide is 1 and so 1-1 is 0 and that slide will become the 0%
-    (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
-  );
+  // Functions
+  const createDots = function () {
+    slides.forEach(function (_, i) {
+      dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class='dots__dot' data-slide='${i}'></button>`
+      );
+    });
+  };
+
+  const activateDot = function (slide) {
+    // Remove active class from all dots
+    document
+      .querySelectorAll('.dots__dot')
+      .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+    // Add active class to current dot
+    document
+      .querySelector(`.dots__dot[data-slide='${slide}']`)
+      .classList.add('dots__dot--active');
+
+    curSlide = Number(slide); // Bug fix: when we click on the last slide (dot) and then click the next button, it will go to the second slide instead of the first slide
+  };
+
+  const goToSlide = function (slide) {
+    slides.forEach(
+      // Ex: curSlide is 1 and so 1-1 is 0 and that slide will become the 0%
+      (s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`)
+    );
+  };
+
+  // Next slide
+  const nextSlide = function () {
+    if (curSlide === maxSlide) {
+      curSlide = 0;
+    } else {
+      curSlide++;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  // Previous Slide function
+  const prevSlide = function () {
+    if (curSlide === 0) {
+      curSlide = maxSlide;
+    } else {
+      curSlide--;
+    }
+    goToSlide(curSlide);
+    activateDot(curSlide);
+  };
+
+  const init = function () {
+    goToSlide(0);
+    createDots();
+    activateDot(0);
+  };
+  init();
+
+  // Event handlers
+  btnRight.addEventListener('click', nextSlide);
+  btnLeft.addEventListener('click', prevSlide);
+
+  document.addEventListener('keydown', function (e) {
+    // console.log(e);
+    if (e.key === 'ArrowLeft') prevSlide(); // Your choice: If statement or short circuiting
+    e.key === 'ArrowRight' && nextSlide(); // Short circuiting
+  });
+
+  // Event delegation for dots
+  dotContainer.addEventListener('click', function (e) {
+    if (e.target.classList.contains('dots__dot')) {
+      // console.log('DOT');
+      const { slide } = e.target.dataset;
+      goToSlide(slide);
+      activateDot(slide);
+    }
+  });
 };
+sliders(); // Stored the code above in a function to avoid global variables and then called the function.
 
-goToSlide(0);
+///////////////////////////////////////
+//      Efficient Script Loading
+///////////////////////////////////////
 
-// Next slide
-const nextSlide = function () {
-  if (curSlide === maxSlide) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
+///////////////////////////////////////
+//      Lifecycle DOM Events
+///////////////////////////////////////
+// DOMContentLoaded: DOM is loaded and parsed, without waiting for images and other external resources to load.
+// load: DOM is loaded and parsed, and all external resources are loaded as well.
+// beforeunload: User is about to leave the page.
+// unload: Page is unloaded.
+// document.querySelector('DOMContentLoaded', function (e) {
+//   console.log('HTML parsed and DOM tree built!', e);
+// });
 
-  goToSlide(curSlide);
-};
+// window.addEventListener('load', function (e) {
+//   console.log('Page fully loaded', e);
+// });
 
-// Previous Slide function
-const prevSlide = function () {
-  if (curSlide === 0) {
-    curSlide = maxSlide;
-  } else {
-    curSlide--;
-  }
-  goToSlide(curSlide);
-};
+// window.addEventListener('beforeunload', function (e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = ''; // We used to leave messages here but people abused it. So we only get a generic message now.
+// });
 
-btnRight.addEventListener('click', nextSlide);
-btnLeft.addEventListener('click', prevSlide);
+// window.addEventListener('unload', function (e) {
+//   console.log('Page unloaded', e); // This event is not very useful. It's mostly used for analytics.
+// });
 
 ///////////////////////////////////////
 ////////////// LECTURES ///////////////
