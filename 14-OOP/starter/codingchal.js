@@ -12,7 +12,34 @@ Your tasks:
 Test data:
 - Car 1: 'BMW' going at 120 km/h
 - Car 2: 'Mercedes' going at 95 km/h
+*/
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
 
+const bmw = new Car('BMW', 120);
+const mercedes = new Car('Mercedes', 95);
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+// bmw.accelerate();
+// bmw.accelerate();
+// bmw.brake();
+// bmw.accelerate(); // 145 km/h
+// mercedes.accelerate();
+// mercedes.accelerate();
+// mercedes.accelerate(); // 125 km/h
+
+/* 
 The Complete JavaScript Course 28
 
 Coding Challenge #2
@@ -25,7 +52,43 @@ Your tasks:
 
 Test data:
 - Car 1: 'Ford' going at 120 km/h
+*/
 
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} speed: ${this.speed} km/h`);
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} slowing down: ${this.speed} km/h`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(mphSpeed) {
+    this.speed = mphSpeed * 1.6; // The user inputs the US speed (in mph) and we need to convert it to km/h and store it in speed.
+    console.log(this.speed); // logging purposes.
+  }
+}
+
+// const ford = new CarCl('Ford', 120);
+// console.log(ford.speedUS);
+// ford.accelerate();
+// ford.brake();
+
+// ford.speedUS = 50;
+// console.log(ford);
+
+/* 
 Coding Challenge #3
 
 Your tasks:
@@ -36,7 +99,36 @@ Your tasks:
 
 Test data:
 - Car 1: 'Tesla' going at 120 km/h, with a charge of 23%
+*/
 
+const EV = function (make, speed, battery) {
+  Car.call(this, make, speed);
+  this.battery = battery;
+};
+EV.prototype = Object.create(Car.prototype);
+EV.prototype.constructor = EV;
+
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.battery = chargeTo;
+};
+
+EV.prototype.accelerate = function () {
+  this.speed += 20;
+  this.battery -= 1;
+
+  console.log(
+    `${this.make} going at ${this.speed} km/h, with a charge of ${this.battery}%` // Polym
+  );
+};
+
+// const tesla = new EV('Tesla', 50, 23);
+// console.log(tesla);
+// tesla.chargeBattery(90);
+// console.log(tesla); // battery is now 90
+// tesla.accelerate(); // 'Tesla going at 70 km/h, with a charge of 89%'
+// tesla.brake(); // Tesla is going at 65 km/h
+
+/*
 The Complete JavaScript Course 29
 
 Coding Challenge #4
@@ -51,3 +143,49 @@ Test data:
 
 GOOD LUCK 😀
 */
+
+class EVCl extends CarCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  accelerate() {
+    this.speed += 20;
+    this.#charge -= 1;
+
+    console.log(
+      `${this.make} traveling at ${this.speed} km/h, with a charge of ${
+        this.#charge
+      }%` // Polym
+    );
+    return this; // chainable
+  }
+
+  brake() {
+    this.speed -= 5;
+    console.log(`${this.make} slowing down: ${this.speed} km/h`);
+    return this;
+  }
+
+  chargeTo(battery) {
+    this.#charge = battery;
+    console.log(`Battery charged to ${this.#charge}%`);
+    return this;
+  }
+}
+
+const rivian = new EVCl('Rivian', 100, 30);
+console.log(rivian);
+
+// Methods chaining.
+rivian
+  .accelerate()
+  .brake()
+  .chargeTo(50)
+  .accelerate()
+  .brake()
+  .brake()
+  .chargeTo(70);
+
+console.log(rivian.speedUS); // comes from the parent class.
