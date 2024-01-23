@@ -22,6 +22,7 @@ class Workout {
 
   click() {
     this.clicks++;
+    // console.log(this.clicks);
   }
 }
 
@@ -68,7 +69,8 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
-
+const editBtn = document.querySelector('.edit-btn');
+const delAllBtn = document.querySelector('.del-all-btn');
 class App {
   #map;
   #mapZoomLevel = 13;
@@ -82,10 +84,22 @@ class App {
     // Get Data from local storage
     this._getLocalStorage();
 
+    // Rebuild local storage
+    this._rebuildLocalStorage();
+
     // Attach event handlers
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    // EventListener for edit workouts
+    containerWorkouts.addEventListener('click', this.editWorkout.bind(this));
+
+    // EventListenr for delete single workout
+    containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
+
+    // EventListener for delete all button
+    delAllBtn.addEventListener('click', this.delAllWorkouts.bind(this));
   }
 
   _getPosition() {
@@ -224,7 +238,14 @@ class App {
   _renderWorkoutList(workout) {
     let html = `
     <li class="workout workout--${workout.type}" data-id="${workout.id}">
+    <div class="workout__header">
     <h2 class="workout__title">${workout.description}</h2>
+    <span class="delete--edit__icons"
+              ><ion-icon class="edit-btn" name="create-outline"></ion-icon
+              ><ion-icon class="delete-btn" name="trash-outline"></ion-icon
+            ></span>
+          </div>
+    <div class="workout__details-container">
     <div class="workout__details">
       <span class="workout__icon">${
         workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'
@@ -250,6 +271,7 @@ class App {
       <span class="workout__value">${workout.cadence}</span>
       <span class="workout__unit">spm</span>
       </div>
+      </div>
       </li>
       `;
 
@@ -264,6 +286,7 @@ class App {
             <span class="workout__icon">⛰</span>
             <span class="workout__value">${workout.elevationGain}</span>
             <span class="workout__unit">mi</span>
+          </div>
           </div>
         </li>
         `;
@@ -293,6 +316,8 @@ class App {
     // Using the public interface
     // workout.click(); disabled the functionality of click (converting from string back to obj made it lose this functionality).
     // We can try grabbing the object and converting by using object.create?
+
+    workout.click();
   }
 
   _setLocalStorage() {
@@ -318,6 +343,120 @@ class App {
   reset() {
     localStorage.removeItem('workouts');
     location.reload();
+  }
+
+  // Rebuild the workouts array from localStorage!
+  _rebuildLocalStorage() {
+    if (!localStorage.getItem('workouts')) return;
+
+    const workoutsData = JSON.parse(localStorage.getItem('workouts'));
+
+    // Helper function to create instances of Running or Cycling
+    const createWorkoutInstance = (type, data) => {
+      if (type === 'running') {
+        const runningInstance = new Running(
+          data.coords,
+          data.distance,
+          data.duration,
+          data.cadence
+        );
+        runningInstance.id = data.id; // Set the ID
+        runningInstance.clicks = data.clicks;
+
+        return runningInstance;
+      } else if (type === 'cycling') {
+        const cyclingInstance = new Cycling(
+          data.coords,
+          data.distance,
+          data.duration,
+          data.elevationGain
+        );
+        cyclingInstance.id = data.id; // Set the ID
+        cyclingInstance.clicks = data.clicks;
+        return cyclingInstance;
+      }
+      return null;
+    };
+
+    // Rebuild the data back into class of either Running or Cycling
+    const rebuiltWorkouts = workoutsData.map(workout => {
+      return createWorkoutInstance(workout.type, workout);
+    });
+
+    // Clear workouts
+    this.#workouts = [];
+
+    // Push unique rebuilt workouts into the #workouts array in the App class
+    this.#workouts.push(...rebuiltWorkouts);
+
+    console.log(this.#workouts);
+  }
+
+  // Edit workout function
+  editWorkout(e) {
+    // Only when the edit button is clicked
+    const editIconEl = e.target.closest('.edit-btn');
+    // Guard clause
+    if (!editIconEl) return;
+
+    const workoutEl = e.target.closest('.workout');
+    console.log(workoutEl);
+
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+
+    // Get the input fields
+    const inputDistance = document.querySelector('.form__input--distance');
+    const inputDuration = document.querySelector('.form__input--duration');
+    const inputCadence = document.querySelector('.form__input--cadence');
+    const inputElevation = document.querySelector('.form__input--elevation');
+
+    // Set the input fields to the workout data
+    inputDistance.value = workout.distance;
+    inputDuration.value = workout.duration;
+    if (workout.type === 'running') {
+      inputCadence.value = workout.cadence;
+      inputElevation.value = '';
+    } else if (workout.type === 'cycling') {
+      inputElevation.value = workout.elevationGain;
+      inputCadence.value = '';
+    }
+
+    // Hide the form + clear the input fields.
+    this._hideForm();
+  }
+
+  // Delete single workout method
+  deleteWorkout(e) {
+    // Only when the delete button is clicked
+    const deleteIconEl = e.target.closest('.delete-btn');
+    // Guard clause
+    if (!deleteIconEl) return;
+
+    const workoutEl = e.target.closest('.workout');
+
+    const workout = this.#workouts.find(
+      work => work.id === workoutEl.dataset.id
+    );
+
+    // Delete the workout from list
+    workoutEl.remove();
+
+    // Delete workout
+    const index = this.#workouts.indexOf(workout);
+    this.#workouts.splice(index, 1);
+
+    // Set local storage to all workouts
+    this._setLocalStorage();
+
+    // Reload page to remove from map (not the best way)
+    location.reload();
+  }
+
+  // Delete all workouts
+  delAllWorkouts() {
+    this.reset();
   }
 }
 
