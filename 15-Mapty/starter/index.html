@@ -34,7 +34,7 @@
       <img src="logo.png" alt="Logo" class="logo" />
 
       <ul class="workouts">
-        <form class="form hidden">
+        <form class="form formCSS hidden">
           <div class="form__row">
             <label class="form__label">Type</label>
             <select class="form__input form__input--type">
@@ -137,14 +137,13 @@
         </li> -->
       </ul>
 
-      <!-- Overlay with absolute position in the center -->
-      <div class="overlay hidden">
+      <div class="editform hidden">
         <div class="overlay__content">
           <h2 class="overlay__title">Edit your workout</h2>
-          <form class="form form--edit">
+          <form class="edit formCSS form--edit">
             <div class="form__row">
               <label class="form__label">Type</label>
-              <select class="form__input form__input--type">
+              <select class="form__input edit__input--type">
                 <option value="running">Running</option>
                 <option value="cycling">Cycling</option>
               </select>
@@ -152,28 +151,28 @@
             <div class="form__row">
               <label class="form__label">Distance</label>
               <input
-                class="form__input form__input--distance"
+                class="form__input edit__input--distance"
                 placeholder="mi"
               />
             </div>
             <div class="form__row">
               <label class="form__label">Duration</label>
               <input
-                class="form__input form__input--duration"
+                class="form__input edit__input--duration"
                 placeholder="min"
               />
             </div>
             <div class="form__row">
               <label class="form__label">Cadence</label>
               <input
-                class="form__input form__input--cadence"
+                class="form__input edit__input--cadence"
                 placeholder="step/min"
               />
             </div>
             <div class="form__row form__row--hidden">
               <label class="form__label">Elev Gain</label>
               <input
-                class="form__input form__input--elevation"
+                class="form__input edit__input--elevation"
                 placeholder="feet"
               />
             </div>

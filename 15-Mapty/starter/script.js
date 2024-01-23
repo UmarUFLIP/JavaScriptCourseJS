@@ -69,13 +69,26 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+
+// For the edit form:
+const editform = document.querySelector('.edit');
+const containerEdit = document.querySelector('.editform');
 const editBtn = document.querySelector('.edit-btn');
+const editInputType = document.querySelector('.edit__input--type');
+const editInputDistance = document.querySelector('.edit__input--distance');
+const editInputDuration = document.querySelector('.edit__input--duration');
+const editInputCadence = document.querySelector('.edit__input--cadence');
+const editInputElevation = document.querySelector('.edit__input--elevation');
+
+// Delete all
 const delAllBtn = document.querySelector('.del-all-btn');
+
 class App {
   #map;
   #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
+  #markers = new Map();
 
   constructor() {
     // this get executed as soon as page laods (we dont have to do line 67)
@@ -87,13 +100,18 @@ class App {
     // Rebuild local storage
     this._rebuildLocalStorage();
 
-    // Attach event handlers
-    form.addEventListener('submit', this._newWorkout.bind(this));
-    inputType.addEventListener('change', this._toggleElevationField);
+    // Moving to marker on click
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
 
+    // Attach event handlers
+    // Form event handlers
+    form.addEventListener('submit', this._newWorkout.bind(this));
+    inputType.addEventListener('change', this._toggleElevationField);
+
     // EventListener for edit workouts
-    containerWorkouts.addEventListener('click', this.editWorkout.bind(this));
+    containerEdit.addEventListener('click', this.findWorkout.bind(this));
+    editInputType.addEventListener('change', this._toggleElevFieldEdit);
+    editform.addEventListener('submit', this._editWorkout.bind(this));
 
     // EventListenr for delete single workout
     containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
@@ -158,6 +176,14 @@ class App {
     inputCadence.closest('.form__row').classList.toggle('form__row--hidden');
   }
 
+  // This is the toggle for the editWorkout UI
+  _toggleElevFieldEdit() {
+    // prettier-ignore
+    editInputCadence.closest('.form__row').classList.toggle('form__row--hidden');
+    // prettier-ignore
+    editInputElevation.closest('.form__row').classList.toggle('form__row--hidden');
+  }
+
   _newWorkout(e) {
     // Helper functions to check if the inputs are numbers and > 0. Every method returns true if the condition meets for all inputs. We use the rest operator to take in any amount of inputs and on that array of inputs. We do the every method. It will return false if it does not meet the condition of isFinite and > 0.
     const validInputs = (...inputs) =>
@@ -173,9 +199,12 @@ class App {
     const { lat, lng: long } = this.#mapEvent.latlng;
     let workout;
 
+    console.log(type, distance, duration);
+
     // If workout running, create running object
     if (type === 'running') {
       const cadence = +inputCadence.value;
+      console.log(cadence);
       // Check if data is valid
       // Guard clause
       if (
@@ -219,7 +248,8 @@ class App {
   }
 
   _renderWorkoutMarker(workout) {
-    L.marker(workout.coords)
+    const marker = L.marker(workout.coords);
+    marker
       .addTo(this.#map)
       .bindPopup(
         L.popup({
@@ -234,6 +264,10 @@ class App {
         `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
       )
       .openPopup();
+
+    this.#markers.set(workout.id, marker);
+
+    // console.log(marker);
   }
   _renderWorkoutList(workout) {
     let html = `
@@ -362,7 +396,6 @@ class App {
         );
         runningInstance.id = data.id; // Set the ID
         runningInstance.clicks = data.clicks;
-
         return runningInstance;
       } else if (type === 'cycling') {
         const cyclingInstance = new Cycling(
@@ -392,37 +425,30 @@ class App {
     console.log(this.#workouts);
   }
 
-  // Edit workout function
-  editWorkout(e) {
+  // Helper function for edit workout: finds the workout on which edit button is clicked.
+  findWorkout(e) {
+    e.preventDefault();
     // Only when the edit button is clicked
     const editIconEl = e.target.closest('.edit-btn');
     // Guard clause
     if (!editIconEl) return;
-
     const workoutEl = e.target.closest('.workout');
     console.log(workoutEl);
-
     const workout = this.#workouts.find(
       work => work.id === workoutEl.dataset.id
     );
 
-    // Get the input fields
-    const inputDistance = document.querySelector('.form__input--distance');
-    const inputDuration = document.querySelector('.form__input--duration');
-    const inputCadence = document.querySelector('.form__input--cadence');
-    const inputElevation = document.querySelector('.form__input--elevation');
-
-    // Set the input fields to the workout data
-    inputDistance.value = workout.distance;
-    inputDuration.value = workout.duration;
+    editInputDistance.placeholder = `${workout.distance}`;
+    editInputDuration.placeholder = `${workout.duration}`;
     if (workout.type === 'running') {
-      inputCadence.value = workout.cadence;
-      inputElevation.value = '';
-    } else if (workout.type === 'cycling') {
-      inputElevation.value = workout.elevationGain;
-      inputCadence.value = '';
+      document
+        .getElementsByClassName('edit__input--type')
+        .getElementsByTagName('option').selected = 'Running';
+      editInputCadence.placeholder = `${workout.cadence}`;
     }
-
+    if (workout.type === 'cycling') {
+      editInputElevation.placeholder = `${workout.elevationGain}`;
+    }
     // Hide the form + clear the input fields.
     this._hideForm();
   }
@@ -443,6 +469,10 @@ class App {
     // Delete the workout from list
     workoutEl.remove();
 
+    const marker = this.#markers.get(workoutEl.dataset.id);
+    // console.log(marker);
+    marker.remove();
+
     // Delete workout
     const index = this.#workouts.indexOf(workout);
     this.#workouts.splice(index, 1);
@@ -450,8 +480,8 @@ class App {
     // Set local storage to all workouts
     this._setLocalStorage();
 
-    // Reload page to remove from map (not the best way)
-    location.reload();
+    // // Reload page to remove from map (not the best way)
+    // location.reload();
   }
 
   // Delete all workouts
