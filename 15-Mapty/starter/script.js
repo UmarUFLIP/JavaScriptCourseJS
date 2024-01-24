@@ -71,9 +71,6 @@ const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
 // For the edit form:
-const editform = document.querySelector('.edit');
-const containerEdit = document.querySelector('.editform');
-const editBtn = document.querySelector('.edit-btn');
 const editInputType = document.querySelector('.edit__input--type');
 const editInputDistance = document.querySelector('.edit__input--distance');
 const editInputDuration = document.querySelector('.edit__input--duration');
@@ -109,9 +106,6 @@ class App {
     inputType.addEventListener('change', this._toggleElevationField);
 
     // EventListener for edit workouts
-    containerEdit.addEventListener('click', this.findWorkout.bind(this));
-    editInputType.addEventListener('change', this._toggleElevFieldEdit);
-    editform.addEventListener('submit', this._editWorkout.bind(this));
 
     // EventListenr for delete single workout
     containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
@@ -425,32 +419,8 @@ class App {
     console.log(this.#workouts);
   }
 
-  // Helper function for edit workout: finds the workout on which edit button is clicked.
-  findWorkout(e) {
+  editWorkout(e) {
     e.preventDefault();
-    // Only when the edit button is clicked
-    const editIconEl = e.target.closest('.edit-btn');
-    // Guard clause
-    if (!editIconEl) return;
-    const workoutEl = e.target.closest('.workout');
-    console.log(workoutEl);
-    const workout = this.#workouts.find(
-      work => work.id === workoutEl.dataset.id
-    );
-
-    editInputDistance.placeholder = `${workout.distance}`;
-    editInputDuration.placeholder = `${workout.duration}`;
-    if (workout.type === 'running') {
-      document
-        .getElementsByClassName('edit__input--type')
-        .getElementsByTagName('option').selected = 'Running';
-      editInputCadence.placeholder = `${workout.cadence}`;
-    }
-    if (workout.type === 'cycling') {
-      editInputElevation.placeholder = `${workout.elevationGain}`;
-    }
-    // Hide the form + clear the input fields.
-    this._hideForm();
   }
 
   // Delete single workout method
