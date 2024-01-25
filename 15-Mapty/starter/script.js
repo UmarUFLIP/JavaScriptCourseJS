@@ -76,6 +76,7 @@ const editInputDistance = document.querySelector('.edit__input--distance');
 const editInputDuration = document.querySelector('.edit__input--duration');
 const editInputCadence = document.querySelector('.edit__input--cadence');
 const editInputElevation = document.querySelector('.edit__input--elevation');
+console.log(containerWorkouts);
 
 // Delete all
 const delAllBtn = document.querySelector('.del-all-btn');
@@ -98,26 +99,28 @@ class App {
     this._rebuildLocalStorage();
 
     // Moving to marker on click
-    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+    // containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
 
     // Attach event handlers
     // Form event handlers
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevationField);
 
+    // containerWorkouts.addEventListener('click', this._editWorkout.bind(this));
+
     // EventListener for edit workouts
     containerWorkouts.addEventListener(
       'click',
       function (e) {
         if (!e) return;
-        console.log(e);
-        this._editWorkout(e);
-        this._deleteWorkout(e);
+        console.log(e.target);
+        // this._editWorkout(e);
+        // this._deleteWorkout(e);
       }.bind(this)
     );
 
     // // EventListenr for delete single workout
-    // containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
+    // containerWorkouts.addEventListener('click', this._deleteWorkout.bind(this));
 
     // EventListener for delete all button
     delAllBtn.addEventListener('click', this.delAllWorkouts.bind(this));
