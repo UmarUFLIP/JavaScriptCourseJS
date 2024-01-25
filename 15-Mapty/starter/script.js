@@ -106,9 +106,18 @@ class App {
     inputType.addEventListener('change', this._toggleElevationField);
 
     // EventListener for edit workouts
+    containerWorkouts.addEventListener(
+      'click',
+      function (e) {
+        if (!e) return;
+        console.log(e);
+        this._editWorkout(e);
+        this._deleteWorkout(e);
+      }.bind(this)
+    );
 
-    // EventListenr for delete single workout
-    containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
+    // // EventListenr for delete single workout
+    // containerWorkouts.addEventListener('click', this.deleteWorkout.bind(this));
 
     // EventListener for delete all button
     delAllBtn.addEventListener('click', this.delAllWorkouts.bind(this));
@@ -419,12 +428,12 @@ class App {
     console.log(this.#workouts);
   }
 
-  editWorkout(e) {
+  _editWorkout(e) {
     e.preventDefault();
   }
 
   // Delete single workout method
-  deleteWorkout(e) {
+  _deleteWorkout(e) {
     // Only when the delete button is clicked
     const deleteIconEl = e.target.closest('.delete-btn');
     // Guard clause
