@@ -106,6 +106,13 @@ body {
   color: white;
   background-color: orangered;
   cursor: pointer;
+
+  transition: all 0.5s;
+}
+
+.btn-country:hover {
+  padding: 3rem 6rem;
+  background-color: rgb(201, 54, 0);
 }
 
 .images {
