@@ -21,7 +21,7 @@
 149C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\sass\_upload.scss133506182515391220 0
 177C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\structured-clone.js133524195795126846 0
 179C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\symbol\unscopables.js133524195812659637 0
-132C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist133530347722907461 1
+132C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist133531025394784558 1
 171C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\svgo\plugins\removeUnusedNS.js133524129427680009 0
 177C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\modules\es.array.for-each.js133524195697654560 0
 168C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\stable\math\log2.js133524195765473673 0
@@ -126,7 +126,7 @@
 208C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node\CDO.js133524129422384830 0
 177C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\modules\es.object.has-own.js133524195702046608 0
 180C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\features\css3-attr.js133524129431207736 0
-154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\recipeView.js133530235576980476 0
+154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\recipeView.js133530976807705402 0
 161C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\is-json\package.json133524129417402524 0
 174C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\actual\instance\splice.js133524195791908152 0
 167C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\domutils\lib\querying.d.ts133524129424044491 0
@@ -175,7 +175,7 @@
 178C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\es\typed-array\to-reversed.js133524195802073020 0
 189C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\csso\node_modules\css-tree\lib\definition-syntax133524129431227737 1
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\csso\cjs\replace\Percentage.cjs133524129424753727 0
-148C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\controller.js133530346595986561 0
+148C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\controller.js133531024071359956 0
 176C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\es\array\virtual\entries.js133524195695315029 0
 161C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\semver\bin\semver.js133524129425469206 0
 180C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\actual\array\virtual\reverse.js133524195782492416 0
@@ -191,14 +191,14 @@
 184C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\number\max-safe-integer.js133524195769286811 0
 174C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@parcel\utils\test\config.test.js133524129422440111 0
 150C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\svgo\dist133524129419585469 1
-143C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\model.js133530347722238161 0
+143C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\model.js133530961787214935 0
 178C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\stable\typed-array\entries.js133524195696006133 0
 189C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\css-tree\lib\syntax\node\index-parse-selector.js133524129430123574 0
 158C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\paginationView.js133530331716000116 0
 187C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@swc\helpers\_\_class_extract_field_descriptor133524129430611466 1
 181C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@parcel\package-manager\lib\index.js.map133524129426180264 0
 192C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\csso\node_modules\css-tree\lib\syntax\node\index.js133524129430193648 0
-155C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\resultsView.js133530236366224904 0
+155C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\resultsView.js133531023493936517 0
 154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\searchView.js133530185367397513 0
 178C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\modules\es.string.includes.js133524195705014812 0
 171C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\actual\dom-collections133524195760554735 1
@@ -217,7 +217,7 @@
 163C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\escalade\dist\index.js133524129418141383 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\update-browserslist-db\index.js133524129419086781 0
 162C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\stable\object133524195814736729 1
-148C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\View.js133530237696869482 0
+148C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\src\js\views\View.js133531025393288928 0
 189C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\csso\node_modules\css-tree\cjs\lexer\generic.cjs133524129425928577 0
 166C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@lezer\lr\dist\index.d.ts133524129421978852 0
 181C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\string\virtual\fixed.js133524195728807755 0
@@ -3562,7 +3562,7 @@
 164C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\domhandler\package.json133524129419708099 0
 175C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\regexp\replace.js133524195782061871 0
 179C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\features\array\virtual\flat.js133524195730419744 0
-155C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.f7626f62.css.map133530292344913065 0
+155C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.f7626f62.css.map133531023494913374 0
 187C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\csso\node_modules\css-tree\cjs\lexer\Lexer.cjs133524129427122297 0
 179C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\modules\es.string.fontcolor.js133524195704879195 0
 160C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\braces\package.json133524129417447684 0
@@ -4516,7 +4516,7 @@
 176C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\features\video.js133524129437608665 0
 177C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\css-select\node_modules\domutils\lib133524129426948797 1
 185C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\features\pointer-events.js133524129435743962 0
-151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.f7626f62.css133530292344735762 0
+151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.f7626f62.css133531023494735725 0
 177C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\core-js\stable\number\parse-float.js133524195774857666 0
 176C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@swc\helpers\_\_object_spread_props133524129431664589 1
 181C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\css-select\node_modules\domutils\LICENSE133524129417573344 0
@@ -7936,7 +7936,7 @@
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\regions\TO.js133524129437235894 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\regions\TV.js133524129437336538 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\regions\UA.js133524129437402176 0
-151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\icons.21bad73c.svg133530292345580109 0
+151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\icons.21bad73c.svg133531023495365397 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\regions\UY.js133524129437557438 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\caniuse-lite\data\regions\VA.js133524129437577381 0
 171C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\@swc\helpers\src\_to_array.mjs133524129433272734 0
@@ -9708,11 +9708,11 @@
 154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\.bin\svgo.cmd133524129457104569 0
 168C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\.bin\update-browserslist-db133524129457104569 0
 172C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\node_modules\.bin\update-browserslist-db.ps1133524129457104569 0
-153C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\favicon.8b2f57bf.png133530292345137566 0
-151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\icons.dfd7a6db.svg133530292345600368 0
+153C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\favicon.8b2f57bf.png133531023494829240 0
+151C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\icons.dfd7a6db.svg133531023494698308 0
 154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.62406edb.js.map133524183685217523 0
 162C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.62406edb.js.map.17052.k133524145644762831 0
-150C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.e37f48ea.js133530347722525852 0
-154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.e37f48ea.js.map133530347722610291 0
-143C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.html133530292344979663 0
-150C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\logo.726d37a8.png133530292345236387 0
+150C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.e37f48ea.js133531025394367744 0
+154C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.e37f48ea.js.map133531025394556766 0
+143C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\index.html133530959191104691 0
+150C:\Users\UmarMian\OneDrive - UFLIP LLC\Documents\UFlip Intern Learning\JavaScript\Jonas S\JavaScriptCourseJS\18-forkify\starter\dist\logo.726d37a8.png133531023494698308 0
