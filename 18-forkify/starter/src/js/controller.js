@@ -5,7 +5,7 @@ import resultsView from './views/resultsView.js';
 import paginationView from './views/paginationView.js';
 import bookmarksView from './views/bookmarksView.js';
 
-// Feb 28th - you left off before bro was about to refactor resultsview and bookmark view. 
+// Feb 28th - you left off before bro was about to refactor resultsview and bookmark view.
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
@@ -23,6 +23,8 @@ const controlRecipes = async function () {
 
     // 0) Update result view to mark selected search result
     resultsView.update(model.getSearchResultsPage());
+
+    // 3) Updating bookmarks view
     bookmarksView.update(model.state.bookmarks);
 
     // 1) Loading Recipe
@@ -32,6 +34,7 @@ const controlRecipes = async function () {
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
+    console.log(err);
   }
 };
 controlRecipes();
@@ -87,8 +90,13 @@ const controlAddBookmark = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlBookmarks = function () {
+  bookmarksView.render(model.state.bookmarks);
+};
+
 // Implemented subscriber-publisher pattern.
 const init = function () {
+  bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
