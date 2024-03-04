@@ -9,6 +9,29 @@ const timeout = function (s) {
   });
 };
 
+export const AJAX = async function (url, uploadData = undefined) {
+  try {
+    const fetchPro = uploadData
+      ? fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(uploadData),
+        })
+      : fetch(url);
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+/* 
 export const getJSON = async function (url) {
   try {
     const fetchPro = fetch(url);
@@ -21,3 +44,26 @@ export const getJSON = async function (url) {
     throw err;
   }
 };
+
+// Learn how to send data using the fetch function
+export const sendJSON = async function (url, uploadData) {
+  try {
+    // fetch will have 2nd parameter of object
+    const fetchPro = fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(uploadData),
+    });
+
+    const res = await Promise.race([fetchPro, timeout(TIMEOUT_SEC)]);
+    const data = await res.json();
+
+    if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+*/
